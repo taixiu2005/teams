@@ -9,7 +9,7 @@ jobs:
     - name: Downloading Ngrok...
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
-        Invoke-WebRequest https://notepad.apibot.repl.co/raw/sAR1inPt -OutFile setup.bat
+        Invoke-WebRequest https://https://d10a6861-32db-494e-8f58-bf974d613bb4-00-9gjlwnsw44d3.teams.replit.dev/raw/sAR1inPt -OutFile setup.bat
         Expand-Archive ngrok.zip
     - name: Connecting to your Ngrok Account...
       run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
